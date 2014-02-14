@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css">
+<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  </head>   
+  <body>
+<div data-role="page" id="home">
+      <div data-role="header" data-theme="b">
+        <h1>Advanced Software Engineering CS5551 LAB 2 </h1>
+      </div>   
+	 
+	<div data-role="content" data-theme="">
+        <h2 align="center" id="head">Find Out Which is better?? Car, Bus or Walk from UMKC to Kansas Airport</h2>
+		<div class="ui-grid-b">
+		<div class="ui-block-a" data-theme="c">
+		<h3 align="center">Click for Drive Route<h3>
+		<button type="button" onclick="drive()"> Drive!!</button>
+		<div id="map_drive" style="height: 360px; width: 360px"></div>
+		
+		<script>
+		var directionDisplay;
+var directionsService = new google.maps.DirectionsService();     //Create a DirectionsService object which is required to communicate with the Google Maps API Direction Service
+var map;
+		function drive()
+{
+          directionsDisplay = new google.maps.DirectionsRenderer();        //Create a DirectionsRenderer object to render the directions results
+    var center = new google.maps.LatLng(0, 0);    //Map is centered at 0,0
+    var myOptions =
+    {
+            zoom:7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            center: center
+    }
+    map = new google.maps.Map(document.getElementById("map_drive"), myOptions);
+    directionsDisplay.setMap(map);
+    var start = "umkc";     //Set the source/ origin
+    var end = "kansas city airport";  //Set the destination
+    var request =
+    {
+            origin:start,
+            destination:end,
+            travelMode: google.maps.DirectionsTravelMode.DRIVING          //Current travel mode is DRIVING. You can change to BICYCLING or WALKING and see the changes.
+    };
+    directionsService.route(request, function(response, status)
+    {
+            if (status == google.maps.DirectionsStatus.OK) //Check if request is successful.
+            {
+            directionsDisplay.setDirections(response);         //Display the directions result
+            }
+    });
+}
+</script>
+		</div>
+		<div class="ui-block-b" data-theme="">
+		<h3 align="center">Click for Transit Route</h3>
+		<button type="button" onclick="transit()">Transit!!</button>
+		<div id="map_transit" style="height: 360px; width: 360px" align="center"></div>
+		<script>
+		var directionDisplay;
+var directionsService = new google.maps.DirectionsService();     //Create a DirectionsService object which is required to communicate with the Google Maps API Direction Service
+var map;
+		function transit()
+{
+          directionsDisplay = new google.maps.DirectionsRenderer();        //Create a DirectionsRenderer object to render the directions results
+    var center = new google.maps.LatLng(0, 0);    //Map is centered at 0,0
+    var myOptions =
+    {
+            zoom:7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            center: center
+    }
+    map = new google.maps.Map(document.getElementById("map_transit"), myOptions);
+    directionsDisplay.setMap(map);
+    var start = "umkc";     //Set the source/ origin
+    var end = "kansas city airport";  //Set the destination
+    var request =
+    {
+            origin:start,
+            destination:end,
+            travelMode: google.maps.DirectionsTravelMode.TRANSIT          //Current travel mode is DRIVING. You can change to BICYCLING or WALKING and see the changes.
+    };
+    directionsService.route(request, function(response, status)
+    {
+            if (status == google.maps.DirectionsStatus.OK) //Check if request is successful.
+            {
+            directionsDisplay.setDirections(response);         //Display the directions result
+            }
+    });
+}
+		</script>
+		</div>
+		<div class="ui-block-c" data-theme="b">
+		<h3 align="center"> Click for Walk Route</h3>
+		<button type="button" onclick="walk()">Walk!!</button>
+		<div id="map_walk" style="height:360px;width:360px"</div>
+		<script>
+		var directionDisplay;
+var directionsService = new google.maps.DirectionsService();     //Create a DirectionsService object which is required to communicate with the Google Maps API Direction Service
+var map;
+		function walk()
+{
+          directionsDisplay = new google.maps.DirectionsRenderer();        //Create a DirectionsRenderer object to render the directions results
+    var center = new google.maps.LatLng(0, 0);    //Map is centered at 0,0
+    var myOptions =
+    {
+            zoom:7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            center: center
+    }
+    map = new google.maps.Map(document.getElementById("map_walk"), myOptions);
+    directionsDisplay.setMap(map);
+    var start = "umkc";     //Set the source/ origin
+    var end = "kansas city airport";  //Set the destination
+    var request =
+    {
+            origin:start,
+            destination:end,
+            travelMode: google.maps.DirectionsTravelMode.WALKING          //Current travel mode is DRIVING. You can change to BICYCLING or WALKING and see the changes.
+    };
+    directionsService.route(request, function(response, status)
+    {
+            if (status == google.maps.DirectionsStatus.OK) //Check if request is successful.
+            {
+            directionsDisplay.setDirections(response);         //Display the directions result
+            }
+    });
+}
+		</script>
+		</div>
+		</div>
+     
+	  </div>   
+	  
+		
+		</script>
+	<button type="button" onclick="clearlocal()" data-theme="b"">Clear the Count!<button>
+		
+			
+			<p> 
+	You have viewed this page 
+	<span id="count">an untold number of</span> 
+	time(s). 
+	<p id="write2"></p>
+		</p> 
+		<script> 
+			var storage = window.localStorage; 
+			if (!storage.pageLoadCount) storage.pageLoadCount = 0; 
+			storage.pageLoadCount = parseInt(storage.pageLoadCount, 10) + 1; 
+			document.getElementById('count').innerHTML = storage.pageLoadCount; 
+			function clearlocal()
+			{
+				
+				storage.clear("database");
+			alert("Storage Cleared, Reload and Check"); 
+			}
+			
+			
+		</script> 
+
+	</div>	 
+</div> 
+     
+
+	
+	<style>
+	body{
+background-color:#CEF6EC    
+}
+h1{
+		font-size:200%;
+        font-style:italic
+		}
+#head{
+    color:#0B0B3B;
+    background-color:#ECE0F8
+	}
+h3{
+    color:#190B07;}
+#map_drive{
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+	#map_walk{
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+	#map_transit{
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+	}
+</style>
+  </body>
+</html>

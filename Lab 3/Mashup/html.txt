@@ -1,0 +1,31 @@
+<div page-role="page">
+    <body style="background-color:#A0A0A0";>
+    <div page-role="header" data-theme="b">
+        <h1>MASHUP application LAB-3</h1></div>
+<div page-role="content">
+    <h2>Google vs Facebook Statistics</h2>
+    <img src="http://chart.finance.yahoo.com/z?s=GOOG&t=12m&q=l&z=l&p=m50,m200
+" height="300" width="250">
+    <img src="http://chart.finance.yahoo.com/z?s=FB&t=12m&q=l&z=l&p=m50,m200" height="300" width="250">
+    <p>Satisfied with the result??? Wanna Invest then Click</p>
+    <a href="https://us.etrade.com/home" target="iframe_a">ETRADE</a><br>
+    <iframe src="http://www.u.arizona.edu/~jiang/etrade.gif.gif" height="330" width="330" frameborder="5" name="iframe_a">
+    </iframe>
+        <p> Want to Know more Watch this Video</p>
+       <iframe id="ytplayer" type="text/html" width="250" height="200"
+src="https://www.youtube.com/embed/?listType=search&list=google%2520vs%2520facebook"
+        frameborder="0" allowfullscreen></iframe>
+    <p>Tell you friends through Twitter<p>
+       <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" name="twitter">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><br>
+        Like us on Facebook
+        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Freference%2Fplugins%2Flike&amp;width=450&amp;height=80&amp;colorscheme=light&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;send=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+ </div>
+        </div>
+   <div page-role="footer">     
+       <p>All the statistics are aquired from yahoo finance and updated regularly on this site</p></div>
+        
+        </div>
+        
+
+

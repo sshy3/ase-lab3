@@ -1,0 +1,52 @@
+<html>	
+	<head>
+		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css">
+		<link rel="stylesheet" href="jquery-ui-themes-1.10.4\themes\blitzer\jquery.ui.theme.css">
+		<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		</head>
+	<body>
+		 <div data-role="page" data-fullscreen="true" id="home">
+	  <div data-role="header"  data-theme="b" class="header">
+	  <h1>ASE LAB 3 Web Client Using REST Service<h1>
+	   </div>
+	   <div page-role="content">
+	   <h2 align="center"> Convert Fahrenheit to Celsius<h2>
+		<input type="text" ></input>
+		<button data-inline="true" align="center" class="list" id="one">Convert</button>
+		<div id="write" ></div>
+		<script> 
+		var echo = function(dataPass) {
+		$.ajax({
+        type: "POST",
+        url: "/echo/json/",
+        data: dataPass,
+        cache: false,
+                success: function(json) {
+            alert(json.cel);
+        }
+    });
+};
+$("#one").live('click', function() {
+
+    $.get("http://localhost:12741/Service2.svc/farh/90", function(data) {
+        var json = {
+            json: JSON.stringify(data),
+            delay: 1
+        };
+        echo(json);
+		alert("one");
+    });
+});
+alert("one");
+
+					
+		</script>
+		</div>
+		</div>
+	</body>
+	</head>
+</html>

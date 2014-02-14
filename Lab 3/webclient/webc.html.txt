@@ -1,0 +1,9 @@
+<div data-role="page" data-fullscreen="true" id="home">
+<div data-role="header"  data-theme="b" class="header">
+<h1>ASE LAB 3 Web Client Using REST Service<h1>
+</div>
+<div page-role="content">
+<h2 align="center"> Convert Fahrenheit to Celsius<h2>
+<input type="text" id="input1" ></input>
+<button data-inline="true" align="center" class="list" id="one">Convert</button>
+<div id="write" ></div>

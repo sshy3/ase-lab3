@@ -1,0 +1,14 @@
+h1
+{
+    color: BLACK;
+    font-family:verdana;
+    text-align:center;
+}
+h2
+{
+    text-align:center;
+}
+p
+{
+  color:#400000;
+}
